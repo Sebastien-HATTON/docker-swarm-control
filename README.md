@@ -1,7 +1,5 @@
 # Overview
-This project is a Vagrant box that is provisioned for sofware development.  It is a Xubuntu-based system and 
-has many of the tools needed by a developer already installed.  The provisioning mechanism is based on Ansible 
-and allows for user-specific customizations to be applied.
+This project is a Vagrant box that ... 
 
 # Prerequisites
 

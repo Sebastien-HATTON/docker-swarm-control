@@ -8,10 +8,6 @@ Vagrant.configure("2") do |config|
 
     config.vm.boot_timeout = 300
     config.vm.graceful_halt_timeout = 60
-# Xenial does not have the correct VirtualBox Guest additions so the shared folder does not get mounted
-#   config.vm.box = "ubuntu/xenial64"
-#   config.vm.box = "ubuntu/trusty64"
-#   config.vm.box_check_update = true
 
     config.vm.box = "xenial-x64-server/5.0.24"
     config.vm.box_check_update = true
@@ -31,7 +27,7 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--largepages", "on"]
         v.customize ["modifyvm", :id, "--acpi", "on"]
         v.customize ["modifyvm", :id, "--nictype1", "virtio"]
-        v.customize ["modifyvm", :id, "--groups", "/Docker Everywhere"]
+        v.customize ["modifyvm", :id, "--groups", "/Swarm"]
     end
 
     config.vm.provision "file", source: "files/inventory", destination: "/tmp/inventory"
@@ -39,7 +35,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.define "alpha" do |alpha|
 #       alpha.vm.hostname = "alpha"
-        alpha.vm.network "private_network", ip: "10.10.10.10"
+        alpha.vm.network "public_network"
         alpha.vm.provider "virtualbox" do |v|
             v.name = "everywhere.alpha"
             v.customize ["modifyvm", :id, "--memory", "1024"]
@@ -47,57 +43,12 @@ Vagrant.configure("2") do |config|
             v.customize ["modifyvm", :id, "--cpus", "1"]
         end
         alpha.vm.provision "file", source: "scripts", destination: "/home/vagrant/scripts"
-        alpha.vm.provision "file", source: "compose", destination: "/home/vagrant/compose"
         alpha.vm.provision "shell", inline: "chmod a+x /home/vagrant/scripts/*.sh"
         alpha.vm.provision "ansible_local" do |ansible|
              ansible.playbook = "/tmp/playbook.yml"
              ansible.verbose  = true
              ansible.install  = true
              ansible.inventory_path = "/tmp/inventory"
-        end
-    end
-
-    config.vm.define "bravo" do |bravo|
-#       bravo.vm.hostname = "bravo"
-        bravo.vm.network "private_network", ip: "10.10.10.20"
-        bravo.vm.provider "virtualbox" do |v|
-            v.name = "everywhere.bravo"
-            v.customize ["modifyvm", :id, "--memory", "1024"]
-            v.customize ["modifyvm", :id, "--vram", "12"]
-            v.customize ["modifyvm", :id, "--cpus", "1"]
-        end
-    end
-
-    config.vm.define "charlie" do |charlie|
-#       charlie.vm.hostname = "charlie"
-        charlie.vm.network "private_network", ip: "10.10.10.30"
-        charlie.vm.provider "virtualbox" do |v|
-            v.name = "everywhere.charlie"
-            v.customize ["modifyvm", :id, "--memory", "1024"]
-            v.customize ["modifyvm", :id, "--vram", "12"]
-            v.customize ["modifyvm", :id, "--cpus", "1"]
-        end
-    end
-
-    config.vm.define "delta" do |delta|
-#       delta.vm.hostname = "delta"
-        delta.vm.network "private_network", ip: "10.10.10.40"
-        delta.vm.provider "virtualbox" do |v|
-            v.name = "everywhere.delta"
-            v.customize ["modifyvm", :id, "--memory", "1024"]
-            v.customize ["modifyvm", :id, "--vram", "12"]
-            v.customize ["modifyvm", :id, "--cpus", "1"]
-        end
-    end
-
-    config.vm.define "echo" do |echo|
-#       echo.vm.hostname = "echo"
-        echo.vm.network "private_network", ip: "10.10.10.50"
-        echo.vm.provider "virtualbox" do |v|
-            v.name = "everywhere.echo"
-            v.customize ["modifyvm", :id, "--memory", "1024"]
-            v.customize ["modifyvm", :id, "--vram", "12"]
-            v.customize ["modifyvm", :id, "--cpus", "1"]
         end
     end
 end
