@@ -4,6 +4,7 @@ echo Installing DataDog
 
 docker service create --mode global \
                       --name data-dog \
+                      --endpoint-mode vip \
                       --label org.kurron.purpose="monitoring" \
                       --env API_KEY=4a2ad6741d78c9f690510083065a0bff \
                       --log-driver json-file \
@@ -26,6 +27,7 @@ echo Plex Media Server
 docker service create --mode global \
                       --name plex \
                       --constraint 'node.labels.plex-capable==true' \
+                      --endpoint-mode vip \
                       --publish 32400:32400 \
                       --label org.kurron.purpose="fun" \
                       --env SKIP_CHOWN_CONFIG="TRUE" \
