@@ -1,0 +1,2 @@
+alpha ansible_connection=local
+bravo ansible_connection=local
