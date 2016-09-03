@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 #       alpha.vm.hostname = "alpha"
         alpha.vm.network "public_network"
         alpha.vm.provider "virtualbox" do |v|
-            v.name = "everywhere.alpha"
+            v.name = "Control"
             v.customize ["modifyvm", :id, "--memory", "1024"]
             v.customize ["modifyvm", :id, "--vram", "12"]
             v.customize ["modifyvm", :id, "--cpus", "1"]
