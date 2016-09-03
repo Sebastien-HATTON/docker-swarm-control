@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "playbook.yml", destination: "/tmp/playbook.yml"
 
     config.vm.define "alpha" do |alpha|
-@       alpha.vm.hostname = "alpha"
+#       alpha.vm.hostname = "alpha"
         alpha.vm.network "public_network"
         alpha.vm.provider "virtualbox" do |v|
             v.name = "everywhere.alpha"
