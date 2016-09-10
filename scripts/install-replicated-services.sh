@@ -1,5 +1,20 @@
 #!/bin/bash
 
+echo Installing Ratpack Echo
+
+docker service create --mode replicated \
+                      --replicas=1 \
+                      --name ratpack-echo-replicated \
+                      --endpoint-mode vip \
+                      --publish 6060:5050 \
+                      --label org.kurron.purpose="monitoring" \
+                      --log-driver json-file \
+                      --log-opt max-size=128m \
+                      --log-opt max-file=4 \
+                      kurron/docker-ratpack-echo:1.0.0
+
+docker service inspect --pretty ratpach-echo-replicated
+
 # required volumes:
 #     ./create-nfs-volume-read-write.sh 192.168.1.234 /atlantis-jfrog-data artifactory-data
 #     ./create-nfs-volume-read-write.sh 192.168.1.234 /atlantis-jfrog-etc artifactory-etc
