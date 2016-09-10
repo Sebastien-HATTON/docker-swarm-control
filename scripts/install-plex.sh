@@ -21,7 +21,7 @@ CMD="docker run --detach \
                 --name plex \
                 --network host \
                 --restart always \
-                --volume plex-config:/config \
+                --volume plex-config:/config:rw \
                 --volume media:/mnt/media:ro \
                 --volume torrent-sync:/mnt/torrent:ro \
                 timhaak/plex:latest"
