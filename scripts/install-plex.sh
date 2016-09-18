@@ -17,7 +17,8 @@
 # can't use Docker Compose because it doesn't understand pre-created volumes
 CMD="docker run --detach \
                 --dns 8.8.8.8 \
-                --env SKIP_CHOWN_CONFIG='TRUE' \
+                --env SKIP_CHOWN_CONFIG=FALSE \
+                --env RUN_AS_ROOT=TRUE \
                 --name plex \
                 --network host \
                 --restart always \
