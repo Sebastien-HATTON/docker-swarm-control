@@ -4,7 +4,6 @@
 Vagrant.require_version ">= 1.9.3"
 
 Vagrant.configure(2) do |config|
-  config.vm.network "public_network"
   config.ssh.username = "vagrant"
   config.ssh.password = "vagrant"
   config.vm.box = "kurron/xenial-server-docker"
@@ -25,9 +24,12 @@ Vagrant.configure(2) do |config|
       v.customize ["modifyvm", :id, "--cpus", "1"]
   end
 
-  config.vm.define "alpha" do |alpha|
-      alpha.vm.provider "virtualbox" do |v|
-          v.name = "swarm.alpha"
+  (1..5).each do |i|
+      config.vm.define "node-#{i}" do |node|
+          node.vm.provider "virtualbox" do |v|
+              v.name = "swarm.node-#{i}"
+              v.network "private_network", ip: "10.10.10.#{i}"
+          end
       end
   end
 
