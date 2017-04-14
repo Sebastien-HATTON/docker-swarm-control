@@ -19,7 +19,7 @@ All the components of the environment live in repositories on the internet so th
 1. `scripts/02-create-overlay-network.sh` -- no longer needed!
 1. `scripts/03-deploy-global-service.sh` -- creates a stack that has service where one instance runs on all nodes
 1. `scripts/04-destroy-global-service.sh` -- destroys the stack, freeing resources
-1. `scripts/05-deploy-replicated-service.sh` -- creates a stack were services get placed randomly by the scheduler
+1. `scripts/05-deploy-replicated-service.sh` -- creates a stack were services get placed randomly by the scheduler and scaled
 1. `scripts/06-destroy-replicated-service.sh` -- cleans up the stack we just created
 
 # Tips and Tricks
