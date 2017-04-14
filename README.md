@@ -16,8 +16,8 @@ All the components of the environment live in repositories on the internet so th
 # Installation
 1. `vagrant ssh node-1` -- all commands are done from the master node
 1. `scripts/01-create-swarm.sh` -- you will have to enter the password for each ssh session
-1. `scripts/02-create-overlay-network.sh` -- creates the overlay network that the containers will use
-1. `scripts/03-deploy-global-service.sh` -- creates a service where one instance runs on all nodes
+1. `scripts/02-create-overlay-network.sh` -- no longer needed!
+1. `scripts/03-deploy-global-service.sh` -- creates a stack that has service where one instance runs on all nodes
 
 # Tips and Tricks
 TODO

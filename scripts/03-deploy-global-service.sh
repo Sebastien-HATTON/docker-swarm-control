@@ -14,10 +14,10 @@ echo List all stacks
 docker stacks ls
 sleep 1
 
-echo Listing all tasks in the stack
-docker stack ps ${STACK_NAME}
-sleep 1
-
 echo Listing all services in the stack
 docker stack services ${STACK_NAME}
+sleep 1
+
+echo Listing all tasks in the stack
+watch docker stack ps ${STACK_NAME}
 sleep 1
