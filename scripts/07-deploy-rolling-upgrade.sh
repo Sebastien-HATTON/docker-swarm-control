@@ -31,11 +31,6 @@ docker stack deploy --compose-file ${DESCRIPTOR_V2} ${STACK_NAME}
 sleep 4
 clear
 
-echo List all stacks
-docker stack ls
-sleep 4
-clear
-
 echo Listing all services in the stack
 docker stack services ${STACK_NAME}
 sleep 4
