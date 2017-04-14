@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# IMPORTANT: run this from the 10.10.10.10 node
+
 echo Creating the Swarm, making this host the Manager
 docker swarm init --advertise-addr 10.10.10.10
 
