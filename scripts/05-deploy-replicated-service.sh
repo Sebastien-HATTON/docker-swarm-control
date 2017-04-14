@@ -39,5 +39,5 @@ SERVICE_ID=$(docker stack services --quiet ${STACK_NAME})
 docker service scale ${SERVICE_ID}=1
 
 echo Listing all services in the stack
-watch docker service ps ${SERVICE_ID}
+watch docker stack services ${STACK_NAME}
 clear
