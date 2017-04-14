@@ -15,7 +15,7 @@ All the components of the environment live in repositories on the internet so th
 
 # Installation
 1. `vagrant ssh node-1`
-1. 
+1. `scripts/01-create-swarm.sh` -- you will have to enter the password for each ssh session
 
 # Tips and Tricks
 TODO

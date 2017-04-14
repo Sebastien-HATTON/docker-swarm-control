@@ -13,10 +13,10 @@ echo Manager Token is ${MANAGER_TOKEN}
 echo Worker Token is ${WORKER_TOKEN}
 
 echo Joining remaining nodes to the Swarm as Workers
-ssh 10.10.10.11 sudo docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.12 sudo docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.13 sudo docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.14 sudo docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+ssh 10.10.10.11 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+ssh 10.10.10.12 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+ssh 10.10.10.13 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+ssh 10.10.10.14 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
 
 echo List nodes in the Swarm
 docker node ls
