@@ -14,7 +14,8 @@ This project is a showcase of how to use the new Docker Swarm mode, driving it t
 All the components of the environment live in repositories on the internet so there is nothing to build.
 
 # Installation
-TODO
+1. `vagrant ssh node-1`
+1. 
 
 # Tips and Tricks
 TODO
