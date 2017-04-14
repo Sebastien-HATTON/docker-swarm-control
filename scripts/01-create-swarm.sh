@@ -14,16 +14,16 @@ echo Worker Token is ${WORKER_TOKEN}
 
 echo Restarting the Docker daemons so that the proper host name gets used
 sudo service docker restart
-ssh 10.10.10.11 sudo service docker restart
-ssh 10.10.10.12 sudo service docker restart
-ssh 10.10.10.13 sudo service docker restart
-ssh 10.10.10.14 sudo service docker restart
+#ssh 10.10.10.11 sudo service docker restart
+#ssh 10.10.10.12 sudo service docker restart
+#ssh 10.10.10.13 sudo service docker restart
+#ssh 10.10.10.14 sudo service docker restart
 
 echo Joining remaining nodes to the Swarm as Workers
-ssh 10.10.10.11 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.12 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.13 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
-ssh 10.10.10.14 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+#ssh 10.10.10.11 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+#ssh 10.10.10.12 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+#ssh 10.10.10.13 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
+#ssh 10.10.10.14 docker swarm join --token $WORKER_TOKEN 10.10.10.10:2377
 
 echo List nodes in the Swarm
 docker node ls
