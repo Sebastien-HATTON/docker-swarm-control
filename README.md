@@ -8,7 +8,6 @@ This project is a showcase of how to use the new Docker Swarm mode, driving it t
 * [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) installed into VirtualBox
 * **[Virtualization support](https://en.wikipedia.org/wiki/X86_virtualization) enabled in your BIOS**
 * a working internet connection
-* Your corporate VPN running (if you want to apply some work-specific plays)
 
 # Building
 All the components of the environment live in repositories on the internet so there is nothing to build.
@@ -16,16 +15,21 @@ All the components of the environment live in repositories on the internet so th
 # Installation
 1. `vagrant ssh node-1` -- all commands are done from the master node
 1. `scripts/01-create-swarm.sh` -- you will have to enter the password for each ssh session
-1. `scripts/02-create-overlay-network.sh` -- no longer needed!
-1. `scripts/03-deploy-global-service.sh` -- creates a stack that has service where one instance runs on all nodes
-1. `scripts/04-destroy-global-service.sh` -- destroys the stack, freeing resources
-1. `scripts/05-deploy-replicated-service.sh` -- creates a stack were services get placed randomly by the scheduler and scaled
-1. `scripts/06-destroy-replicated-service.sh` -- cleans up the stack we just created
-1. `scripts/07-deploy-rolling-upgrade.sh` -- showcase an upgrade of Redis from one release to another
-1. `scripts/08-destroy-rolling-upgrade.sh` -- cleans up the upgrade stack
+1. ~~`scripts/02-create-overlay-network.sh` -- no longer needed!~~
 
 # Tips and Tricks
-TODO
+
+## Deploying A Global Service
+1. `scripts/03-deploy-global-service.sh` -- creates a stack that has service where one instance runs on all nodes
+1. `scripts/04-destroy-global-service.sh` -- destroys the stack, freeing resources
+
+## Deploying A Replicated Service
+1. `scripts/05-deploy-replicated-service.sh` -- creates a stack were services get placed randomly by the scheduler and scaled
+1. `scripts/06-destroy-replicated-service.sh` -- cleans up the stack we just created
+
+## Upgrading A Stack
+1. `scripts/07-deploy-rolling-upgrade.sh` -- showcase an upgrade of Redis from one release to another
+1. `scripts/08-destroy-rolling-upgrade.sh` -- cleans up the upgrade stack
 
 # Troubleshooting
 TODO
