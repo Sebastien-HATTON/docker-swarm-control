@@ -3,7 +3,7 @@
 # deploy a replicated service -- one instance on every node
 # NOTE: must be run on the master node
 
-DESCRIPTOR_V1=`pwd`/DESCRIPTOR_V1s/rolling-upgrade-v1-service-definition.yml
+DESCRIPTOR_V1=`pwd`/descriptors/rolling-upgrade-v1-service-definition.yml
 STACK_NAME=upgrade-test
 
 echo Deploying Stack
