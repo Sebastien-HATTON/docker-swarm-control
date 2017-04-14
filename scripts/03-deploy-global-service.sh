@@ -4,10 +4,10 @@
 # NOTE: must be run on the master node
 
 DESCRIPTOR=`pwd`/descriptors/global-service-definition.yml
-
+STACK_NAME=global-test
 
 echo Deploying service
-docker stack deploy --compose-file ${DESCRIPTOR}
+docker stack deploy --compose-file ${DESCRIPTOR} ${STACK_NAME}
 sleep 1
 
 echo Inspecting service
