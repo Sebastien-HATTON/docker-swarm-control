@@ -11,7 +11,7 @@ docker stack deploy --compose-file ${DESCRIPTOR} ${STACK_NAME}
 sleep 1
 
 echo List all stacks
-docker stacks ls
+docker stack ls
 sleep 1
 
 echo Listing all services in the stack

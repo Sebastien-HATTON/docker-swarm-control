@@ -10,5 +10,5 @@ docker stack rm ${STACK_NAME}
 sleep 1
 
 echo List all stacks
-docker stacks ls
+docker stack ls
 sleep 1
