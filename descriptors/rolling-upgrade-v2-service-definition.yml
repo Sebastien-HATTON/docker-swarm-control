@@ -23,3 +23,5 @@ services:
         image: redis:3.0.7
         networks:
             - development
+        ports:
+            - "6379"
