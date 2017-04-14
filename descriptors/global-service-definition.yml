@@ -1,5 +1,9 @@
 version: '3.1'
 
+networks:
+    development:
+        driver: overlay
+
 services:
     global-service:
         command: ["ping", "docker.com"]
@@ -18,4 +22,4 @@ services:
                 window: 120s
         image: alpine:latest
         networks:
-            - development 
+            - development
