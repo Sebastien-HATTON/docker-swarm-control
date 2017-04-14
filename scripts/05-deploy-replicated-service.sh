@@ -8,26 +8,27 @@ STACK_NAME=replicated-test
 
 echo Deploying Stack
 docker stack deploy --compose-file ${DESCRIPTOR} ${STACK_NAME}
-sleep 1
+sleep 2
+clear
 
 echo List all stacks
 docker stack ls
-sleep 1
+sleep 2
+clear
 
 echo Listing all services in the stack
 docker stack services ${STACK_NAME}
-sleep 1
+sleep 2
+clear
 
 echo Listing all tasks in the stack
 watch docker stack ps ${STACK_NAME}
-sleep 1
+clear
 
 echo Scale the services up
-SERVICE_ID=$(docker stack ps ${STACK_NAME} --quiet)
-CMD="docker service scale ${SERVICE_ID}=16"
-echo $CMD
-${CMD}
+SERVICE_ID=$(docker stack services --quiet ${STACK_NAME})
+docker service scale ${SERVICE_ID}=64
 
 echo Listing all services in the stack
 watch docker stack services ${STACK_NAME}
-sleep 1
+clear
