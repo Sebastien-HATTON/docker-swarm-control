@@ -21,6 +21,8 @@ All the components of the environment live in repositories on the internet so th
 1. `scripts/04-destroy-global-service.sh` -- destroys the stack, freeing resources
 1. `scripts/05-deploy-replicated-service.sh` -- creates a stack were services get placed randomly by the scheduler and scaled
 1. `scripts/06-destroy-replicated-service.sh` -- cleans up the stack we just created
+1. `scripts/07-deploy-rolling-upgrade.sh` -- showcase an upgrade of Redis from one release to another
+1. `scripts/08-destroy-rolling-upgrade.sh` -- cleans up the upgrade stack
 
 # Tips and Tricks
 TODO
