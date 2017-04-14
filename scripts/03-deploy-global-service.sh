@@ -6,17 +6,18 @@
 DESCRIPTOR=`pwd`/descriptors/global-service-definition.yml
 STACK_NAME=global-test
 
-echo Deploying service
+echo Deploying Stack
 docker stack deploy --compose-file ${DESCRIPTOR} ${STACK_NAME}
 sleep 1
 
-echo Inspecting service
-docker service inspect --pretty global-service
+echo List all stacks
+docker stacks ls
 sleep 1
 
-echo Listing all services
-docker service ls
+echo Listing all tasks in the stack
+docker stack ps ${STACK_NAME}
 sleep 1
 
-echo Watching service get deployed
-watch 'docker service ps global-service'
+echo Listing all services in the stack
+docker stack services ${STACK_NAME}
+sleep 1
