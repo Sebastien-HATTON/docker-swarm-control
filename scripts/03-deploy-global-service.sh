@@ -3,7 +3,8 @@
 # deploy a global service -- one instance on every node 
 # NOTE: must be run on the master node
 
-DESCRIPTOR=${1:-global-service-definition.yml}
+DESCRIPTOR=$(pwd)/descriptors/global-service-definition.yml
+
 
 echo Deploying service
 docker-compose --file ${DESCRIPTOR} up -d
