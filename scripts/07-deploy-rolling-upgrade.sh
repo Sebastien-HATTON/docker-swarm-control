@@ -9,7 +9,7 @@ STACK_NAME=upgrade-test
 
 echo Deploying Stack
 docker stack deploy --compose-file ${DESCRIPTOR_V1} ${STACK_NAME}
-sleep 2
+sleep 4
 clear
 
 echo List all stacks
@@ -28,6 +28,7 @@ clear
 
 echo Deploying Upgraded Stack
 docker stack deploy --compose-file ${DESCRIPTOR_V2} ${STACK_NAME}
+sleep 4
 clear
 
 echo List all stacks

@@ -20,8 +20,8 @@ services:
                 delay: 5s
                 max_attempts: 3
                 window: 120s
-        expose:
-            - "6379"
         image: redis:3.0.6
         networks:
             - development
+        ports:
+            - "6379"
