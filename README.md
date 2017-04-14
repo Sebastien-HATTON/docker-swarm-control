@@ -14,8 +14,9 @@ This project is a showcase of how to use the new Docker Swarm mode, driving it t
 All the components of the environment live in repositories on the internet so there is nothing to build.
 
 # Installation
-1. `vagrant ssh node-1`
+1. `vagrant ssh node-1` -- all commands are done from the master node
 1. `scripts/01-create-swarm.sh` -- you will have to enter the password for each ssh session
+1. `scripts/02-create-overlay-network.sh` -- creates the overlay network that the containers will use
 
 # Tips and Tricks
 TODO
